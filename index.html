@@ -168,6 +168,14 @@
       box-shadow:none;
     }
 
+    nav > .btn.nav-appointment{
+      min-width:136px;
+      padding:12px 18px;
+      text-align:center;
+      white-space:normal;
+      line-height:1.15;
+    }
+
     .hero{
     min-height:720px;
     padding-top:78px;
@@ -529,6 +537,243 @@
       line-height:1.45;
     }
 
+    .gallery{
+      background:var(--light);
+    }
+
+    /* Miniaturas visibles dentro de la página */
+    .gallery-grid{
+      display:grid;
+      grid-template-columns:repeat(auto-fit,minmax(190px,1fr));
+      gap:16px;
+    }
+
+    .gallery-item{
+      position:relative;
+      width:100%;
+      aspect-ratio:4/3;
+      min-height:0;
+      padding:0;
+      overflow:hidden;
+      border:0;
+      border-radius:18px;
+      background:var(--primary-dark);
+      box-shadow:0 9px 24px rgba(15,36,58,.12);
+      cursor:pointer;
+      font:inherit;
+      text-align:left;
+    }
+
+    .gallery-item::after{
+      content:"Ver foto";
+      position:absolute;
+      top:12px;
+      right:12px;
+      padding:5px 10px;
+      border-radius:999px;
+      color:#fff;
+      background:rgba(6,29,45,.74);
+      font-size:.72rem;
+      font-weight:800;
+      opacity:0;
+      transform:translateY(-4px);
+      transition:.25s;
+    }
+
+    .gallery-item img{
+      width:100%;
+      height:100%;
+      min-height:0;
+      object-fit:cover;
+      transition:transform .4s ease,filter .3s ease;
+    }
+
+    .gallery-item:hover img,
+    .gallery-item:focus-visible img{
+      transform:scale(1.055);
+      filter:brightness(.9);
+    }
+
+    .gallery-item:hover::after,
+    .gallery-item:focus-visible::after{
+      opacity:1;
+      transform:translateY(0);
+    }
+
+    .gallery-item:focus-visible{
+      outline:3px solid var(--secondary);
+      outline-offset:3px;
+    }
+
+    .gallery-caption{
+      position:absolute;
+      left:0;
+      right:0;
+      bottom:0;
+      padding:38px 15px 13px;
+      color:var(--white);
+      font-size:.86rem;
+      font-weight:800;
+      background:linear-gradient(transparent,rgba(6,29,45,.9));
+      pointer-events:none;
+    }
+
+    /* Visor grande tipo carrusel */
+    .gallery-lightbox{
+      position:fixed;
+      inset:0;
+      z-index:1000;
+      display:none;
+      align-items:center;
+      justify-content:center;
+      padding:26px 76px;
+      background:rgba(2,12,20,.94);
+      backdrop-filter:blur(10px);
+    }
+
+    .gallery-lightbox.open{
+      display:flex;
+    }
+
+    .gallery-lightbox-content{
+      width:min(1050px,100%);
+      display:flex;
+      flex-direction:column;
+      align-items:center;
+      gap:14px;
+    }
+
+    .gallery-lightbox figure{
+      width:100%;
+      margin:0;
+    }
+
+    .gallery-lightbox-image-wrap{
+      width:100%;
+      min-height:320px;
+      max-height:min(80vh,760px);
+      padding:16px;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      overflow:auto;
+      border-radius:22px;
+      background:#03121c;
+      box-shadow:0 24px 65px rgba(0,0,0,.38);
+    }
+
+    .gallery-lightbox-image{
+      width:auto;
+      height:auto;
+      max-width:100%;
+      max-height:min(74vh,720px);
+      object-fit:contain;
+      object-position:center center;
+      user-select:none;
+      -webkit-user-drag:none;
+    }
+
+    .gallery-lightbox-caption{
+      display:flex;
+      justify-content:space-between;
+      align-items:center;
+      gap:18px;
+      padding:11px 4px 0;
+      color:#fff;
+      font-weight:800;
+    }
+
+    .gallery-lightbox-counter{
+      color:rgba(255,255,255,.65);
+      font-size:.88rem;
+      white-space:nowrap;
+    }
+
+    .gallery-lightbox-close,
+    .gallery-lightbox-arrow{
+      position:absolute;
+      display:grid;
+      place-items:center;
+      border:1px solid rgba(255,255,255,.22);
+      color:#fff;
+      background:rgba(255,255,255,.10);
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .gallery-lightbox-close:hover,
+    .gallery-lightbox-arrow:hover{
+      background:rgba(89,191,255,.34);
+      transform:scale(1.05);
+    }
+
+    .gallery-lightbox-close{
+      top:18px;
+      right:22px;
+      width:46px;
+      height:46px;
+      border-radius:50%;
+      font-size:1.65rem;
+      line-height:1;
+    }
+
+    .gallery-lightbox-arrow{
+      top:50%;
+      width:54px;
+      height:70px;
+      border-radius:16px;
+      transform:translateY(-50%);
+      font-size:2.1rem;
+      line-height:1;
+    }
+
+    .gallery-lightbox-arrow:hover{
+      transform:translateY(-50%) scale(1.05);
+    }
+
+    .gallery-lightbox-prev{left:18px;}
+    .gallery-lightbox-next{right:18px;}
+
+    .gallery-lightbox-thumbs{
+      width:100%;
+      display:flex;
+      justify-content:center;
+      gap:9px;
+      overflow-x:auto;
+      padding:2px 2px 8px;
+      scrollbar-width:thin;
+    }
+
+    .gallery-lightbox-thumb{
+      flex:0 0 74px;
+      width:74px;
+      height:55px;
+      padding:0;
+      overflow:hidden;
+      border:2px solid transparent;
+      border-radius:9px;
+      background:#071f2e;
+      opacity:.55;
+      cursor:pointer;
+      transition:.2s;
+    }
+
+    .gallery-lightbox-thumb img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+    }
+
+    .gallery-lightbox-thumb.active{
+      border-color:var(--secondary-light);
+      opacity:1;
+      transform:translateY(-2px);
+    }
+
+    body.gallery-open{
+      overflow:hidden;
+    }
+
     .contact{
       background:var(--light);
     }
@@ -786,9 +1031,9 @@ background-position: 40% 105%;
       }
 
       .brand img{
-         width:300px;
-    height:auto;
-}
+        width:128px;
+        height:auto;
+      }
 .language-switch{
     gap:2px;
     margin:0 4px;
@@ -803,14 +1048,38 @@ background-position: 40% 105%;
     border-radius:50%;
     padding:0;
 }
-      nav > .btn{
-    min-height:36px;
-    padding:5px 9px;
-    font-size:.62rem;
-    line-height:1.15;
-    border-radius:14px;
-    box-shadow:0 7px 16px rgba(89,191,255,.25);
-}
+      nav{
+        height:72px;
+        gap:7px;
+      }
+
+      .brand{
+        flex:0 1 auto;
+        min-width:0;
+      }
+
+      .brand img{
+        width:128px;
+        max-width:100%;
+      }
+
+      nav > .btn.nav-appointment{
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        flex:0 0 112px;
+        width:112px;
+        min-height:44px;
+        padding:0 10px;
+        border-radius:999px;
+        font-size:.72rem;
+        line-height:1.15;
+        text-align:center;
+        white-space:normal;
+        overflow-wrap:break-word;
+        word-break:normal;
+        box-shadow:0 7px 16px rgba(89,191,255,.25);
+      }
 
       .hero-copy{
         padding:58px 0;
@@ -848,6 +1117,66 @@ background-position: 40% 105%;
       .clinic-exterior figcaption{
         display:none;
       }
+
+      .gallery-grid{
+        grid-template-columns:repeat(2,minmax(0,1fr));
+        gap:10px;
+      }
+
+      .gallery-item{
+        border-radius:13px;
+      }
+
+      .gallery-caption{
+        padding:28px 10px 9px;
+        font-size:.72rem;
+      }
+
+      .gallery-lightbox{
+        padding:62px 12px 18px;
+      }
+
+      .gallery-lightbox-image-wrap{
+        min-height:220px;
+        max-height:68vh;
+        padding:10px;
+        border-radius:15px;
+      }
+
+      .gallery-lightbox-close{
+        top:10px;
+        right:12px;
+        width:40px;
+        height:40px;
+      }
+
+      .gallery-lightbox-arrow{
+        top:auto;
+        bottom:86px;
+        width:48px;
+        height:48px;
+        border-radius:50%;
+        transform:none;
+        z-index:2;
+      }
+
+      .gallery-lightbox-arrow:hover{
+        transform:scale(1.05);
+      }
+
+      .gallery-lightbox-prev{left:16px;}
+      .gallery-lightbox-next{right:16px;}
+
+      .gallery-lightbox-caption{
+        padding:9px 2px 0;
+        font-size:.86rem;
+      }
+
+      .gallery-lightbox-thumb{
+        flex-basis:62px;
+        width:62px;
+        height:46px;
+      }
     }
   </style>
 </head>
@@ -865,6 +1194,7 @@ background-position: 40% 105%;
         <li><a href="#servicios">Servicios</a></li>
         <li><a href="#proceso">Tratamientos</a></li>
         <li><a href="#doctores">Doctores</a></li>
+        <li><a href="#galeria">Galería</a></li>
         <li><a href="#contacto">Contacto</a></li>
       </ul>
 
@@ -878,7 +1208,7 @@ background-position: 40% 105%;
         🇺🇸 EN
     </button>
 </div>
-<a class="btn" href="https://wa.me/526311777737" target="_blank">Agenda tu cita</a>
+<a class="btn nav-appointment" href="https://wa.me/526311777737" target="_blank" rel="noopener noreferrer">Agenda tu cita</a>
     </nav>
   </header>
 
@@ -895,7 +1225,7 @@ background-position: 40% 105%;
 
           <div class="hero-actions">
             <a class="btn" href="#contacto">Agenda tu cita</a>
-            <a class="btn btn-outline" href="https://wa.me/5210000000000" target="_blank">◉ WhatsApp</a>
+            <a class="btn btn-outline" href="https://wa.me/526311777737" target="_blank" rel="noopener noreferrer">◉ WhatsApp</a>
           </div>
 
           <div class="benefits">
@@ -1117,7 +1447,7 @@ background-position: 40% 105%;
             <h2>Visitanos, recupera tu salud bucal y sonrie con seguridad</h2>
             <p>Agenda tu valoración y conoce el tratamiento ideal para ti.</p>
           </div>
-          <a class="btn" href="https://wa.me/5210000000000" target="_blank">Agendar ahora</a>
+          <a class="btn" href="https://wa.me/526311777737" target="_blank" rel="noopener noreferrer">Agendar ahora</a>
         </div>
       </div>
     </section>
@@ -1138,6 +1468,57 @@ background-position: 40% 105%;
     </div>
   </div>
 </section>
+
+    <section class="gallery" id="galeria">
+      <div class="container">
+        <div class="section-heading">
+          <div class="eyebrow">Conoce nuestras instalaciones</div>
+          <h2>Galería Dentech</h2>
+          <p>Descubre los espacios donde cuidamos tu sonrisa con comodidad, tecnología y atención profesional.</p>
+        </div>
+
+        <div class="gallery-grid">
+          <!--
+            Todas las fotos se ven aquí como miniaturas.
+            Para agregar otra, copia uno de estos botones y cambia src, alt y el texto.
+            El visor grande la incluirá automáticamente en las flechas y miniaturas.
+          -->
+          <button class="gallery-item" type="button" data-lightbox-position="center center" aria-label="Abrir foto: Área clínica">
+            <img src="clinica-mejorada.png" alt="Área clínica de Dentech" loading="lazy">
+            <span class="gallery-caption">Área clínica</span>
+          </button>
+          <button class="gallery-item" type="button" data-lightbox-fit="contain" data-lightbox-position="center center" aria-label="Abrir foto: Instalaciones modernas">
+            <img src="clinica-interior.png" alt="Interior de Dentech Nogales" loading="lazy" style="object-position:center 72%;">
+            <span class="gallery-caption">Instalaciones modernas</span>
+          </button>
+          <button class="gallery-item" type="button" data-lightbox-position="center center" aria-label="Abrir foto: Nuestra clínica">
+            <img src="clinica-exterior.png" alt="Exterior de Dentech Nogales" loading="lazy">
+            <span class="gallery-caption">Nuestra clínica</span>
+          </button>
+        </div>
+      </div>
+    </section>
+
+    <div class="gallery-lightbox" id="galleryLightbox" aria-hidden="true" role="dialog" aria-modal="true" aria-label="Galería de Dentech">
+      <button class="gallery-lightbox-close" id="galleryClose" type="button" aria-label="Cerrar galería">×</button>
+      <button class="gallery-lightbox-arrow gallery-lightbox-prev" id="galleryPrev" type="button" aria-label="Foto anterior">‹</button>
+
+      <div class="gallery-lightbox-content">
+        <figure>
+          <div class="gallery-lightbox-image-wrap" id="galleryImageWrap">
+            <img class="gallery-lightbox-image" id="galleryLightboxImage" src="" alt="">
+          </div>
+          <figcaption class="gallery-lightbox-caption">
+            <span id="galleryLightboxCaption"></span>
+            <span class="gallery-lightbox-counter" id="galleryLightboxCounter"></span>
+          </figcaption>
+        </figure>
+        <div class="gallery-lightbox-thumbs" id="galleryLightboxThumbs" aria-label="Miniaturas de la galería"></div>
+      </div>
+
+      <button class="gallery-lightbox-arrow gallery-lightbox-next" id="galleryNext" type="button" aria-label="Foto siguiente">›</button>
+    </div>
+
     <section class="contact" id="contacto">
       <div class="container">
         <div class="section-heading">
@@ -1216,7 +1597,7 @@ background-position: 40% 105%;
     </section>
   </main>
 
-  <a class="whatsapp" href="https://wa.me/526311777737" target="_blank" aria-label="WhatsApp">WA</a>
+  <a class="whatsapp" href="https://wa.me/526311777737" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp">WA</a>
   <a class="back-to-top" href="#inicio" id="backToTop" aria-label="Volver al inicio" title="Volver al inicio">↑</a>
 
   <footer>
@@ -1230,7 +1611,7 @@ background-position: 40% 105%;
       es: {
         pageTitle: "Dentech Nogales | Clínica Dental",
         metaDescription: "Dentech Nogales: clínica dental con atención profesional, tecnología avanzada y tratamientos integrales.",
-        nav: ["Inicio", "Nosotros", "Servicios", "Tratamientos", "Equipo", "Contacto"],
+        nav: ["Inicio", "Nosotros", "Servicios", "Tratamientos", "Equipo", "Galería", "Contacto"],
         headerAppointment: "Agenda tu cita",
         heroEyebrow: "Consigue la sonrisa de tus sueños",
         heroTitle: 'Cuidado dental que <strong>transforma</strong> vidas',
@@ -1294,6 +1675,14 @@ background-position: 40% 105%;
         doctorNames: ["Dr. Fernando del Corro","Dra. Andrea Rentería","Dra. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Luis Serrano","Dr. Diego Vázquez"],
         doctorSpecialties: ["Rehabilitación oral e implantes","Endodoncia","Ortodoncia","Ortodoncia","Odontología general","Cirugía bucal"],
         doctorUniversities: ["Universidad La Salle","Universidad Autónoma de Querétaro","Universidad Autónoma de Guadalajara","Universidad Autónoma de Sinaloa","Universidad de Los Mochis","Universidad Cuauhtémoc"],
+        galleryEyebrow: "Conoce nuestras instalaciones",
+        galleryTitle: "Galería Dentech",
+        galleryDescription: "Descubre los espacios donde cuidamos tu sonrisa con comodidad, tecnología y atención profesional.",
+        galleryCaptions: ["Área clínica", "Instalaciones modernas", "Nuestra clínica"],
+        galleryClose: "Cerrar galería",
+        galleryPrevious: "Foto anterior",
+        galleryNext: "Foto siguiente",
+        galleryPhoto: "Foto",
         contactEyebrow: "Contacto",
         contactTitle: "Agenda una cita en Dentech",
         contactDescription: "Completa el formulario y envíanos tu solicitud por WhatsApp.",
@@ -1334,7 +1723,7 @@ background-position: 40% 105%;
       en: {
         pageTitle: "Dentech Nogales | Dental Clinic",
         metaDescription: "Dentech Nogales: professional dental care, advanced technology and comprehensive treatments.",
-        nav: ["Home", "About Us", "Services", "Treatments","Team", "Contact"],
+        nav: ["Home", "About Us", "Services", "Treatments", "Team", "Gallery", "Contact"],
         headerAppointment: "Book an Appointment",
         heroEyebrow: "Get the smile of your dreams",
         heroTitle: 'Dental care that <strong>transforms</strong> lives',
@@ -1398,6 +1787,14 @@ background-position: 40% 105%;
         doctorNames: ["Dr. Fernando del Corro","Dr. Andrea Rentería","Dr. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Luis Serrano","Dr. Diego Vázquez"],
         doctorSpecialties: ["Oral rehabilitation and implants","Endodontics","Orthodontics","Orthodontics","General dentistry","Oral surgery"],
         doctorUniversities: ["La Salle University","Autonomous University of Querétaro","Autonomous University of Guadalajara","Autonomous University of Sinaloa","University of Los Mochis","Cuauhtémoc University"],
+        galleryEyebrow: "Explore our facilities",
+        galleryTitle: "Dentech Gallery",
+        galleryDescription: "Discover the spaces where we care for your smile with comfort, technology and professional attention.",
+        galleryCaptions: ["Clinical area", "Modern facilities", "Our clinic"],
+        galleryClose: "Close gallery",
+        galleryPrevious: "Previous photo",
+        galleryNext: "Next photo",
+        galleryPhoto: "Photo",
         contactEyebrow: "Contact",
         contactTitle: "Book an appointment at Dentech",
         contactDescription: "Complete the form and send your request through WhatsApp.",
@@ -1523,6 +1920,27 @@ background-position: 40% 105%;
         setTexts(".doctor-university", t.doctorUniversities);
       }
 
+      const galleryHeading = document.querySelector(".gallery .section-heading");
+      if (galleryHeading) {
+        galleryHeading.querySelector(".eyebrow").textContent = t.galleryEyebrow;
+        galleryHeading.querySelector("h2").textContent = t.galleryTitle;
+        galleryHeading.querySelector("p").textContent = t.galleryDescription;
+        setTexts(".gallery-caption", t.galleryCaptions);
+
+        document.querySelectorAll(".gallery-item").forEach((item, index) => {
+          const caption = t.galleryCaptions[index] || item.querySelector(".gallery-caption")?.textContent || "";
+          item.setAttribute("aria-label", `${t.galleryPhoto}: ${caption}`);
+        });
+
+        document.getElementById("galleryClose")?.setAttribute("aria-label", t.galleryClose);
+        document.getElementById("galleryPrev")?.setAttribute("aria-label", t.galleryPrevious);
+        document.getElementById("galleryNext")?.setAttribute("aria-label", t.galleryNext);
+
+        if (document.getElementById("galleryLightbox")?.classList.contains("open")) {
+          actualizarGaleriaAbierta();
+        }
+      }
+
       const contactHeading = document.querySelector(".contact .section-heading");
       contactHeading.querySelector(".eyebrow").textContent = t.contactEyebrow;
       contactHeading.querySelector("h2").textContent = t.contactTitle;
@@ -1592,6 +2010,121 @@ background-position: 40% 105%;
       window.open(url, "_blank", "noopener,noreferrer");
     }
 
+    let galleryItems = [];
+    let galleryCurrentIndex = 0;
+    let galleryTouchStartX = 0;
+
+    function actualizarGaleriaAbierta() {
+      const lightbox = document.getElementById("galleryLightbox");
+      if (!lightbox || !galleryItems.length) return;
+
+      galleryCurrentIndex = (galleryCurrentIndex + galleryItems.length) % galleryItems.length;
+      const currentItem = galleryItems[galleryCurrentIndex];
+      const sourceImage = currentItem.querySelector("img");
+      const caption = currentItem.querySelector(".gallery-caption")?.textContent.trim() || sourceImage.alt;
+      const t = translations[currentLanguage] || translations.es;
+
+      const largeImage = document.getElementById("galleryLightboxImage");
+      largeImage.src = sourceImage.currentSrc || sourceImage.src;
+      largeImage.alt = sourceImage.alt;
+      // Permite elegir cómo se muestra cada fotografía en el visor grande.
+      // La segunda imagen usa "contain" para verse completa y evitar el recorte excesivo.
+      largeImage.style.objectFit = currentItem.dataset.lightboxFit || "contain";
+      largeImage.style.objectPosition = currentItem.dataset.lightboxPosition || sourceImage.style.objectPosition || "center center";
+      document.getElementById("galleryLightboxCaption").textContent = caption;
+      document.getElementById("galleryLightboxCounter").textContent = `${t.galleryPhoto} ${galleryCurrentIndex + 1} / ${galleryItems.length}`;
+
+      document.querySelectorAll(".gallery-lightbox-thumb").forEach((thumb, index) => {
+        thumb.classList.toggle("active", index === galleryCurrentIndex);
+        thumb.setAttribute("aria-current", index === galleryCurrentIndex ? "true" : "false");
+      });
+
+      document.querySelector(".gallery-lightbox-thumb.active")?.scrollIntoView({
+        behavior:"smooth",
+        block:"nearest",
+        inline:"center"
+      });
+    }
+
+    function abrirGaleria(index) {
+      const lightbox = document.getElementById("galleryLightbox");
+      if (!lightbox) return;
+
+      galleryCurrentIndex = index;
+      lightbox.classList.add("open");
+      lightbox.setAttribute("aria-hidden", "false");
+      document.body.classList.add("gallery-open");
+      actualizarGaleriaAbierta();
+      document.getElementById("galleryClose")?.focus();
+    }
+
+    function cerrarGaleria() {
+      const lightbox = document.getElementById("galleryLightbox");
+      if (!lightbox) return;
+
+      lightbox.classList.remove("open");
+      lightbox.setAttribute("aria-hidden", "true");
+      document.body.classList.remove("gallery-open");
+      galleryItems[galleryCurrentIndex]?.focus();
+    }
+
+    function moverGaleria(direction) {
+      galleryCurrentIndex += direction;
+      actualizarGaleriaAbierta();
+    }
+
+    function configurarGaleria() {
+      galleryItems = Array.from(document.querySelectorAll(".gallery-item"));
+      const lightbox = document.getElementById("galleryLightbox");
+      const thumbsContainer = document.getElementById("galleryLightboxThumbs");
+      const imageWrap = document.getElementById("galleryImageWrap");
+
+      if (!galleryItems.length || !lightbox || !thumbsContainer) return;
+
+      thumbsContainer.innerHTML = "";
+
+      galleryItems.forEach((item, index) => {
+        item.addEventListener("click", () => abrirGaleria(index));
+
+        const sourceImage = item.querySelector("img");
+        const thumb = document.createElement("button");
+        thumb.type = "button";
+        thumb.className = "gallery-lightbox-thumb";
+        thumb.setAttribute("aria-label", `${index + 1}`);
+        thumb.innerHTML = `<img src="${sourceImage.getAttribute("src")}" alt="">`;
+        thumb.addEventListener("click", () => {
+          galleryCurrentIndex = index;
+          actualizarGaleriaAbierta();
+        });
+        thumbsContainer.appendChild(thumb);
+      });
+
+      document.getElementById("galleryClose")?.addEventListener("click", cerrarGaleria);
+      document.getElementById("galleryPrev")?.addEventListener("click", () => moverGaleria(-1));
+      document.getElementById("galleryNext")?.addEventListener("click", () => moverGaleria(1));
+
+      lightbox.addEventListener("click", (event) => {
+        if (event.target === lightbox) cerrarGaleria();
+      });
+
+      document.addEventListener("keydown", (event) => {
+        if (!lightbox.classList.contains("open")) return;
+        if (event.key === "Escape") cerrarGaleria();
+        if (event.key === "ArrowLeft") moverGaleria(-1);
+        if (event.key === "ArrowRight") moverGaleria(1);
+      });
+
+      imageWrap?.addEventListener("touchstart", (event) => {
+        galleryTouchStartX = event.changedTouches[0].screenX;
+      }, { passive:true });
+
+      imageWrap?.addEventListener("touchend", (event) => {
+        const difference = event.changedTouches[0].screenX - galleryTouchStartX;
+        if (Math.abs(difference) < 45) return;
+        moverGaleria(difference > 0 ? -1 : 1);
+      }, { passive:true });
+    }
+
     function configurarValidacionBilingue() {
       const requiredFields = document.querySelectorAll(".contact-form [required]");
 
@@ -1626,6 +2159,7 @@ background-position: 40% 105%;
     document.addEventListener("DOMContentLoaded", () => {
       configurarValidacionBilingue();
       configurarBotonVolverArriba();
+      configurarGaleria();
       const savedLanguage = localStorage.getItem("dentech-language") || "es";
       cambiarIdioma(savedLanguage);
     });
