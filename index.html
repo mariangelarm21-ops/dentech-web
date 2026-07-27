@@ -537,6 +537,52 @@
       line-height:1.45;
     }
 
+    .doctor-license{
+      margin-top:8px;
+      color:var(--primary);
+      font-size:.86rem;
+      line-height:1.4;
+      font-weight:800;
+    }
+
+    .social-links{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:8px;
+    }
+
+    .social-link{
+      display:inline-flex;
+      align-items:center;
+      gap:9px;
+      padding:9px 13px;
+      border:1px solid rgba(159,220,255,.48);
+      border-radius:999px;
+      color:var(--white);
+      background:rgba(255,255,255,.07);
+      font-size:.9rem;
+      font-weight:800;
+      transition:.25s;
+    }
+
+    .social-link:hover{
+      border-color:var(--secondary-light);
+      background:rgba(89,191,255,.2);
+      transform:translateY(-2px);
+    }
+
+    .social-link svg{
+      width:20px;
+      height:20px;
+      flex:0 0 20px;
+      fill:none;
+      stroke:currentColor;
+      stroke-width:2;
+      stroke-linecap:round;
+      stroke-linejoin:round;
+    }
+
     .gallery{
       background:var(--light);
     }
@@ -1460,10 +1506,10 @@ background-position: 40% 105%;
     </div>
     <div class="doctors-grid">
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-fernando.png" alt="Dr. Fernando del Corro"></div><div class="doctor-info"><h3>Dr. Fernando del Corro</h3><span class="doctor-specialty">Rehabilitación oral e implantes</span><p class="doctor-university">Universidad La Salle</p></div></article>
-      <article class="doctor-card"><div class="doctor-photo"><img src="doctor-andrea.png" alt="Dra. Andrea Rentería"></div><div class="doctor-info"><h3>Dra. Andrea Rentería</h3><span class="doctor-specialty">Endodoncia</span><p class="doctor-university">Universidad Autónoma de Querétaro</p></div></article>
-      <article class="doctor-card"><div class="doctor-photo"><img src="doctor-anais.png" alt="Dra. Ana Isabel Esquer"></div><div class="doctor-info"><h3>Dra. Ana Isabel Esquer</h3><span class="doctor-specialty">Ortodoncia</span><p class="doctor-university">Universidad Autónoma de Guadalajara</p></div></article>
+      <article class="doctor-card"><div class="doctor-photo"><img src="doctor-andrea.png" alt="Dra. Andrea Rentería"></div><div class="doctor-info"><h3>Dra. Andrea Rentería</h3><span class="doctor-specialty">Endodoncia</span><p class="doctor-university">Universidad Autónoma de Querétaro</p><p class="doctor-license" data-license="11479945">Cédula: 11479945</p></div></article>
+      <article class="doctor-card"><div class="doctor-photo"><img src="doctor-anais.png" alt="Dra. Ana Isabel Esquer"></div><div class="doctor-info"><h3>Dra. Ana Isabel Esquer</h3><span class="doctor-specialty">Ortodoncia</span><p class="doctor-university">Universidad Autónoma de Guadalajara</p><p class="doctor-license" data-license="13140924">Cédula: 13140924</p></div></article>
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-gustavo.png" alt="Dr. Gustavo Vidauri"></div><div class="doctor-info"><h3>Dr. Gustavo Vidauri</h3><span class="doctor-specialty">Ortodoncia</span><p class="doctor-university">Universidad Autónoma de Sinaloa</p></div></article>
-      <article class="doctor-card"><div class="doctor-photo"><img src="luis.png" alt="Dr. Luis Serrano"></div><div class="doctor-info"><h3>Dr. Luis Serrano</h3><span class="doctor-specialty">Odontología general</span><p class="doctor-university">Universidad de Los Mochis</p></div></article>
+      <article class="doctor-card"><div class="doctor-photo"><img src="luis.png" alt="Dr. Luis Serrano"></div><div class="doctor-info"><h3>Dr. Luis Serrano</h3><span class="doctor-specialty">Odontología general</span><p class="doctor-university">Universidad de Los Mochis</p><p class="doctor-license" data-license="14781493">Cédula: 14781493</p></div></article>
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-diego.png" alt="Dr. Diego Vázquez"></div><div class="doctor-info"><h3>Dr. Diego Vázquez</h3><span class="doctor-specialty">Cirugía bucal</span><p class="doctor-university">Universidad Cuauhtémoc</p></div></article>
     </div>
   </div>
@@ -1557,7 +1603,21 @@ background-position: 40% 105%;
 
               <div class="contact-row">
                 <strong>Correo</strong>
-                Dentechnogales@gmail.com
+                <a href="mailto:Dentechnogales@gmail.com">Dentechnogales@gmail.com</a>
+              </div>
+
+              <div class="contact-row social-row">
+                <strong>Redes sociales</strong>
+                <div class="social-links">
+                  <a class="social-link" href="https://www.instagram.com/dentechnogales/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Dentech Nogales">
+                    <svg viewBox="0 0 24 24" aria-hidden="true">
+                      <rect x="3" y="3" width="18" height="18" rx="5"></rect>
+                      <circle cx="12" cy="12" r="4"></circle>
+                      <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"></circle>
+                    </svg>
+                    <span>@dentechnogales</span>
+                  </a>
+                </div>
               </div>
             </div>
           </div>
@@ -1693,6 +1753,8 @@ background-position: 40% 105%;
         phoneLabel: "Teléfono",
         hoursLabel: "Horario",
         emailLabel: "Correo",
+        socialLabel: "Redes sociales",
+        instagramAria: "Instagram de Dentech Nogales",
         address: "Av. Álvaro Obregón 38-D, Fundo Legal, Nogales, Sonora, México.<br>CP: 84030.",
         hours: "Lunes a viernes: 9:00 a.m. – 5:00 p.m.<br>Sábado: 9:00 a.m. – 2:00 p.m.",
         formLabels: ["Nombre", "Teléfono", "Tratamiento de interés", "Mensaje"],
@@ -1805,6 +1867,8 @@ background-position: 40% 105%;
         phoneLabel: "Phone",
         hoursLabel: "Hours",
         emailLabel: "Email",
+        socialLabel: "Social media",
+        instagramAria: "Dentech Nogales on Instagram",
         address: "38-D Álvaro Obregón Ave., Fundo Legal, Nogales, Sonora, Mexico.<br>ZIP Code: 84030.",
         hours: "Monday to Friday: 9:00 a.m. – 5:00 p.m.<br>Saturday: 9:00 a.m. – 2:00 p.m.",
         formLabels: ["Name", "Phone", "Treatment of interest", "Message"],
@@ -1918,6 +1982,12 @@ background-position: 40% 105%;
         setTexts(".doctor-info h3", t.doctorNames);
         setTexts(".doctor-specialty", t.doctorSpecialties);
         setTexts(".doctor-university", t.doctorUniversities);
+        document.querySelectorAll(".doctor-license").forEach((license) => {
+          const number = license.dataset.license || "";
+          license.textContent = language === "en"
+            ? `License: ${number}`
+            : `Cédula: ${number}`;
+        });
       }
 
       const galleryHeading = document.querySelector(".gallery .section-heading");
@@ -1958,6 +2028,11 @@ background-position: 40% 105%;
       contactRows[1].querySelector("strong").textContent = t.phoneLabel;
       contactRows[2].querySelector("strong").textContent = t.hoursLabel;
       contactRows[3].querySelector("strong").textContent = t.emailLabel;
+      if (contactRows[4]) {
+        contactRows[4].querySelector("strong").textContent = t.socialLabel;
+      }
+      const instagramLink = document.querySelector(".social-link");
+      if (instagramLink) instagramLink.setAttribute("aria-label", t.instagramAria);
 
       contactRows[0].innerHTML = `<strong>${t.addressLabel}</strong>${t.address}`;
       contactRows[2].innerHTML = `<strong>${t.hoursLabel}</strong>${t.hours}`;
