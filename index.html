@@ -516,12 +516,23 @@
       border-color:rgba(89,191,255,.32);
       box-shadow:var(--shadow);
     }
+    @media(min-width:1051px){
+      .doctors-grid > .doctor-card:last-child:nth-child(3n + 1){
+        grid-column:2;
+      }
+    }
     .doctor-photo{height:330px;overflow:hidden;background:#fff;}
     .doctor-photo img{
       width:100%;
       height:100%;
       object-fit:cover;
       object-position:center top;
+    }
+
+    .doctor-photo img.doctor-roberto-photo{
+      object-position:center 47%;
+      transform:scale(1.25);
+      transform-origin:center 47%;
     }
     .doctor-info{padding:24px 22px 26px;text-align:center;}
     .doctor-info h3{margin-bottom:7px;font-size:1.18rem;line-height:1.25;}
@@ -1529,7 +1540,7 @@ background-position: 40% 105%;
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-andrea.png" alt="Dra. Andrea Rentería"></div><div class="doctor-info"><h3>Dra. Andrea Rentería</h3><span class="doctor-specialty">Endodoncia</span><p class="doctor-university">Universidad Autónoma de Querétaro</p><p class="doctor-license" data-license="11479945">Cédula: 11479945</p></div></article>
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-anais.png" alt="Dra. Ana Isabel Esquer"></div><div class="doctor-info"><h3>Dra. Ana Isabel Esquer</h3><span class="doctor-specialty">Ortodoncia</span><p class="doctor-university">Universidad Autónoma de Guadalajara</p><p class="doctor-license" data-license="13140924">Cédula: 13140924</p></div></article>
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-gustavo.png" alt="Dr. Gustavo Vidauri"></div><div class="doctor-info"><h3>Dr. Gustavo Vidauri</h3><span class="doctor-specialty">Ortodoncia</span><p class="doctor-university">Universidad Autónoma de Sinaloa</p><p class="doctor-license" data-license="13129509">Cédula: 13129509</p></div></article>
-      <article class="doctor-card"><div class="doctor-photo"><img src="luis.png" alt="Dr. Luis Serrano"></div><div class="doctor-info"><h3>Dr. Luis Serrano</h3><span class="doctor-specialty">Odontología general</span><p class="doctor-university">Universidad de Los Mochis</p><p class="doctor-license" data-license="14781493">Cédula: 14781493</p></div></article>
+      <article class="doctor-card"><div class="doctor-photo"><img class="doctor-roberto-photo" src="doctor-roberto.png" alt="Dr. Roberto Tapia Valdez"></div><div class="doctor-info"><h3>Dr. Roberto Tapia Valdez</h3><span class="doctor-specialty">Odontología general</span><p class="doctor-university">Universidad Autónoma de Sinaloa</p><p class="doctor-license" data-license="15895468">Cédula: 15895468</p></div></article>
       <article class="doctor-card"><div class="doctor-photo"><img src="doctor-diego.png" alt="Dr. Diego Vázquez"></div><div class="doctor-info"><h3>Dr. Diego Vázquez</h3><span class="doctor-specialty">Cirugía bucal</span><p class="doctor-university">Universidad Cuauhtémoc</p><p class="doctor-license" data-license="10973607">Cédula: 10973607</p></div></article>
     </div>
   </div>
@@ -1755,9 +1766,9 @@ background-position: 40% 105%;
         doctorsEyebrow: "Nuestro equipo",
         doctorsTitle: "Conoce a nuestros doctores",
         doctorsDescription: "Profesionales comprometidos con tu salud, comodidad y bienestar.",
-        doctorNames: ["Dr. Fernando del Corro","Dra. Andrea Rentería","Dra. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Luis Serrano","Dr. Diego Vázquez"],
+        doctorNames: ["Dr. Fernando del Corro","Dra. Andrea Rentería","Dra. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Roberto Tapia Valdez","Dr. Diego Vázquez"],
         doctorSpecialties: ["Rehabilitación oral e implantes","Endodoncia","Ortodoncia","Ortodoncia","Odontología general","Cirugía bucal"],
-        doctorUniversities: ["Universidad La Salle","Universidad Autónoma de Querétaro","Universidad Autónoma de Guadalajara","Universidad Autónoma de Sinaloa","Universidad de Los Mochis","Universidad Cuauhtémoc"],
+        doctorUniversities: ["Universidad La Salle","Universidad Autónoma de Querétaro","Universidad Autónoma de Guadalajara","Universidad Autónoma de Sinaloa","Universidad Autónoma de Sinaloa","Universidad Cuauhtémoc"],
         galleryEyebrow: "Conoce nuestras instalaciones",
         galleryTitle: "Galería Dentech",
         galleryDescription: "Descubre los espacios donde cuidamos tu sonrisa con comodidad, tecnología y atención profesional.",
@@ -1870,9 +1881,9 @@ background-position: 40% 105%;
         doctorsEyebrow: "Our team",
         doctorsTitle: "Meet our doctors",
         doctorsDescription: "Professionals committed to your health, comfort and well-being.",
-        doctorNames: ["Dr. Fernando del Corro","Dr. Andrea Rentería","Dr. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Luis Serrano","Dr. Diego Vázquez"],
+        doctorNames: ["Dr. Fernando del Corro","Dr. Andrea Rentería","Dr. Ana Isabel Esquer","Dr. Gustavo Vidauri","Dr. Roberto Tapia Valdez","Dr. Diego Vázquez"],
         doctorSpecialties: ["Oral rehabilitation and implants","Endodontics","Orthodontics","Orthodontics","General dentistry","Oral surgery"],
-        doctorUniversities: ["La Salle University","Autonomous University of Querétaro","Autonomous University of Guadalajara","Autonomous University of Sinaloa","University of Los Mochis","Cuauhtémoc University"],
+        doctorUniversities: ["La Salle University","Autonomous University of Querétaro","Autonomous University of Guadalajara","Autonomous University of Sinaloa","Autonomous University of Sinaloa","Cuauhtémoc University"],
         galleryEyebrow: "Explore our facilities",
         galleryTitle: "Dentech Gallery",
         galleryDescription: "Discover the spaces where we care for your smile with comfort, technology and professional attention.",
